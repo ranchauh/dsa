@@ -52,9 +52,9 @@ public class ModArray {
         }
 
     public static void main(String[] args) {
-        ModArray modArray = new ModArray();
+        ModArray obj = new ModArray();
         int[] A = new int[] {4, 3, 5, 3, 5, 3, 2, 1};
-        int res = modArray.solve(A, 47);
+        int res = obj.solve(A, 47);
         System.out.println(res);
     }
 

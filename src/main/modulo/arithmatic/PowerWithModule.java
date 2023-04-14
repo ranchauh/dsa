@@ -51,8 +51,8 @@ public class PowerWithModule {
     }
 
     public static void main(String[] args) {
-        PowerWithModule powerWithModule = new PowerWithModule();
-        int res = powerWithModule.solve(2, 3, 3);
+        PowerWithModule obj = new PowerWithModule();
+        int res = obj.solve(2, 3, 3);
         System.out.println(res);
     }
 }
