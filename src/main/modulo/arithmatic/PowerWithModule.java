@@ -53,6 +53,6 @@ public class PowerWithModule {
     public static void main(String[] args) {
         PowerWithModule powerWithModule = new PowerWithModule();
         int res = powerWithModule.solve(2, 3, 3);
-        assert res == 2;
+        System.out.println(res);
     }
 }
