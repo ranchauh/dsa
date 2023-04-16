@@ -1,4 +1,4 @@
-package modulo.arithmatic;
+package modulo;
 
 /*
 

@@ -1,4 +1,4 @@
-package modulo.arithmatic;
+package modulo;
 /*
 Problem Description
 Given a number in the form of an array A of size N. Each of the digits of the number is represented by A[i]. Check if the number is divisible by 3.

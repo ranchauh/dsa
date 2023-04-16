@@ -37,7 +37,7 @@ For Input 2:
 (5 ^ 2) % 4 = 25 % 4 = 1
  */
 
-package modulo.arithmatic;
+package modulo;
 
 public class PowerWithModule {
     public int solve(int A, int B, int C) {
