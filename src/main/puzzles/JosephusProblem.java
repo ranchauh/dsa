@@ -1,4 +1,4 @@
-package arrays;
+package puzzles;
 
 /**
  * There are A people standing in a circle. Person 1 kills their immediate clockwise neighbour and pass the knife to the next person standing in circle.
