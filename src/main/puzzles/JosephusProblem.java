@@ -25,6 +25,5 @@ public class JosephusProblem {
         System.out.println(obj.solve(9)); //3
         System.out.println(obj.solve(8)); //1
         System.out.println(obj.solve(100)); //1
-        System.out.println(obj.solve(100)); //1
     }
 }
