@@ -17,6 +17,17 @@ public class ConsecutiveSetBit {
         return false;
     }
 
+    private boolean hasConsecutiveBits(int n) {
+        for(boolean isLastBitSet = false; n > 0; n = n >> 1) {
+            boolean isCurBitSet = (n%2 == 1);
+            if(isLastBitSet && isCurBitSet) {
+                return true;
+            }
+            isLastBitSet = isCurBitSet;
+        }
+        return false;
+    }
+
 
     private static void printSpecialBitNumbersNaive(int n) {
         for(int i=0; i<n; i++) {
@@ -32,6 +43,14 @@ public class ConsecutiveSetBit {
      * then left shift followed by bitwise and will result in a non-zero value
      */
     private static boolean IsSpecialBitNumberEfficient(int n) {
+        return (n & (n << 1)) > 0;
+    }
+
+    /**
+     * If a number has at least two consecutive bits set,
+     * then left shift followed by bitwise and will result in a non-zero value
+     */
+    private boolean hasConsecutiveBitsEfficient(int n) {
         return (n & (n << 1)) > 0;
     }
 
