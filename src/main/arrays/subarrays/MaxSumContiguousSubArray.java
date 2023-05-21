@@ -72,19 +72,22 @@ public class MaxSumContiguousSubArray {
 
     public int[] maxSumSubArrayElements(final int[] A) {
         int n = A.length;
-        int start = 0;
+        int start = 0, nextStart = 0;
         int end = 0;
         int sum = 0;
         int maxSum = Integer.MIN_VALUE;
         for (int i=0; i<n; i++) {
             sum += A[i];
             maxSum = Math.max(maxSum, sum);
-            if (sum < 0) {
-                sum = 0;
-                start = i+1;
-            }
             if(sum == maxSum) {
                 end = i;
+            }
+            if (sum < 0) {
+                sum = 0;
+                nextStart = i+1;
+            }
+            if(nextStart < n) {
+                start = nextStart;
             }
         }
         int[] result = new int[end-start+1];
@@ -99,6 +102,10 @@ public class MaxSumContiguousSubArray {
         MaxSumContiguousSubArray obj = new MaxSumContiguousSubArray();
         int[] A = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
         System.out.println(obj.maxSubArray(A)); // 6
-        System.out.println(Arrays.toString(obj.maxSumSubArrayElements(A)));
+        System.out.println(Arrays.toString(obj.maxSumSubArrayElements(A))); //[4, -1, 2, 1]
+
+        int[] B = {-5, -2, -3, -1};
+        System.out.println(obj.maxSubArray(B)); // -1
+        System.out.println(Arrays.toString(obj.maxSumSubArrayElements(B))); //[-1]
     }
 }
