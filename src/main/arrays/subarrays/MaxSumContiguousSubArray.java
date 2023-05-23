@@ -1,7 +1,7 @@
 package arrays.subarrays;
 
 import java.util.Arrays;
-
+// kadane's algorithm
 /**
  * Problem Description
  * Find the contiguous non-empty subarray within an array, A of length N, with the largest sum.
@@ -73,23 +73,24 @@ public class MaxSumContiguousSubArray {
     public int[] maxSumSubArrayElements(final int[] A) {
         int n = A.length;
         int start = 0, nextStart = 0;
-        int end = 0;
+        int end = -1;
         int sum = 0;
         int maxSum = Integer.MIN_VALUE;
         for (int i=0; i<n; i++) {
             sum += A[i];
-            maxSum = Math.max(maxSum, sum);
-            if(sum == maxSum) {
-                end = i;
-            }
             if (sum < 0) {
                 sum = 0;
                 nextStart = i+1;
-            }
-            if(nextStart < n) {
+            } else if( sum > maxSum) {
                 start = nextStart;
+                maxSum = sum;
+                end = i;
             }
         }
+        if(end == -1) {
+            start = end = nextStart - 1;
+        }
+        //System.out.println(start + " " + end);
         int[] result = new int[end-start+1];
         for(int i=0; start <= end; i++) {
             result[i] = A[start];
