@@ -1,4 +1,4 @@
-package arrays.matrix;
+package arrays.matrix.submatrix;
 
 public class MaximumSubmatrixSum {
     public long solve(int[][] A) {

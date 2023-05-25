@@ -1,4 +1,4 @@
-package arrays.matrix;
+package arrays.matrix.submatrix;
 
 /**
  * Problem Description
