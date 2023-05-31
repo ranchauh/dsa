@@ -6,7 +6,7 @@ package bit;
  * NOTE: Your algorithm should have a linear runtime complexity.
  * Could you implement it without using extra memory?
  */
-public class SingleNumber {
+public class SingleNumberInPairs {
     // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
     public static int singleNumber(final int[] A) {
         int result = 0;
