@@ -1,4 +1,6 @@
-package prime;
+package sieve;
+
+import java.util.Arrays;
 
 /**
  * Problem Description
@@ -13,14 +15,21 @@ package prime;
  *
  * Find and return the number of open doors at the end of the procedure.
  *
+ *
+ *
  * Problem Constraints
  * 1 <= A <= 109
+ *
+ *
  *
  * Input Format
  * The only argument given is integer A.
  *
+ *
+ *
  * Output Format
  * Return the number of open doors at the end of the procedure.
+ *
  *
  *
  * Example Input
@@ -61,23 +70,21 @@ package prime;
  *  Doors opened at the end are 1 and 4.
  */
 public class NumberOfOpenDoors {
-    /**
-     * Solution:
-     * We observe that the number of time a door X alter its state is the number of factors of that door X.
-     * If the number of factors is even, then the door will be closed; else, it will be open.
-     *
-     * So, we need to find the numbers between 1 to A for which the number of factors is odd.
-     *
-     * This leads to a very interesting observation that only the number which is perfect square has an odd number of factors.
-     * How?
-     * If ‘a’ is a factor of ‘X’, then there will be a ‘b’ such that ‘a’ * ‘b’ = X.
-     * Only a number that is perfectly square has a factor ‘a’ such that ‘a’ * ‘a’ = X.
-     *
-     * So we will count the number of perfect squares between 1 and A, and that will be sqrt(A).
-     */
     public static int solve(int A) {
-        // find the square root of A
-        return (int)Math.sqrt(A);
+        boolean[] openDoors = new boolean[A+1];
+        for(int i=1; i<=A; i++) {
+            openDoors[i] = true;
+        }
+        for(int i = 2; i<=A; i++) {
+            for(int j = i; j<=A; j += i) {
+                openDoors[j] = !openDoors[j];
+            }
+        }
+        int count = 0;
+        for(int i = 1; i<=A; i++) {
+            if(openDoors[i]) count++;
+        }
+        return count;
     }
 
     public static void main(String[] args) {

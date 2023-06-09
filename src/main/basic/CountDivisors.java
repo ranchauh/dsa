@@ -58,51 +58,6 @@ import java.util.Map;
  */
 public class CountDivisors {
 
-    private static final int MAX_VALUE = 1000000;
-
-    public int[] solveSieve(int[] A) {
-        int n = A.length;
-        int[] factors = new int[n];
-        int[] spfArray = smallestPrimeFactor();
-        int i = 0;
-        // initialize
-        for(int j = 0; j < n; j++) {
-            factors[j]  = 1;
-        }
-        for(int x : A) {
-            Map<Integer,Integer> countMap = new HashMap<>();
-            while(x > 1) {
-                int spf = spfArray[x];
-                countMap.put(spf, countMap.getOrDefault(spf, 0) + 1);
-                x = x/spf;
-            }
-            System.out.println(countMap);
-            for(int key : countMap.keySet()) {
-                int pow = countMap.get(key);
-                factors[i] = factors[i] * (pow + 1);
-            }
-            i++;
-        }
-        return factors;
-    }
-
-    int[] smallestPrimeFactor() {
-        int[] spf = new int[MAX_VALUE+1];
-        for(int i=0; i<MAX_VALUE; i++) {
-            spf[i] = i;
-        }
-        for(int i=2; i*i<=MAX_VALUE; i++) {
-            if(spf[i] == i) {
-                for(int j=i*i; j<=MAX_VALUE; j += i) {
-                    if(spf[j] == j) {
-                        spf[j] = i;
-                    }
-                }
-            }
-        }
-        return spf;
-    }
-
     public int[] solve(int[] A) {
         int n = A.length;
         int[] factors = new int[n];
@@ -125,7 +80,7 @@ public class CountDivisors {
 
     public static void main(String[] args) {
         CountDivisors ob = new CountDivisors();
-        System.out.println(Arrays.toString(ob.solveSieve(new int[]{2, 3, 4, 5}))); // 2, 2, 3, 2
-        System.out.println(Arrays.toString(ob.solveSieve(new int[]{3,52,66,64,14,51,6,39,5,26,80,88,60,73,67,16,1,81,62,42,83,31,40,4,32,31,44,3,20,94,93,57,2,18,32,59,91,30,45}))); //2 6 8 7 4 4 4 4 2 4 10 8 12 2 2 5 1 5 4 8 2 2 8 3 6 2 6 2 6 4 4 4 2 6 6 2 4 8 6
+        System.out.println(Arrays.toString(ob.solve(new int[]{2, 3, 4, 5}))); // 2, 2, 3, 2
+        System.out.println(Arrays.toString(ob.solve(new int[]{3,52,66,64,14,51,6,39,5,26,80,88,60,73,67,16,1,81,62,42,83,31,40,4,32,31,44,3,20,94,93,57,2,18,32,59,91,30,45}))); //2 6 8 7 4 4 4 4 2 4 10 8 12 2 2 5 1 5 4 8 2 2 8 3 6 2 6 2 6 4 4 4 2 6 6 2 4 8 6
     }
 }
