@@ -40,7 +40,7 @@ For Input 2:
 package modulo;
 
 public class PowerWithModule {
-    public int solve(int A, int B, int C) {
+    public static int powWithModulo(int A, int B, int C) {
         long mul = 1;
         for(int i=1; i<=B; i++) {
             // 10^8 * 10^9 = 10^17
@@ -51,8 +51,7 @@ public class PowerWithModule {
     }
 
     public static void main(String[] args) {
-        PowerWithModule obj = new PowerWithModule();
-        int res = obj.solve(2, 3, 3);
+        int res = PowerWithModule.powWithModulo(2, 3, 3);
         System.out.println(res);
     }
 }
