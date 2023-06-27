@@ -42,15 +42,14 @@ import java.util.Arrays;
  */
 public class CountSort {
     public int[] solve(int[] A) {
-        int n = A.length;
         int max = 0;
-        for(int i=0; i<n; i++) {
-            max = Math.max(max, A[i]);
+        for (int k : A) {
+            max = Math.max(max, k);
         }
         int[] countArr = new int[max];
-        for(int i=0; i<n; i++) {
+        for (int k : A) {
             // A[i] -1 because the range is from 1 <= A[i] <= 10^5
-            countArr[A[i] -1]++;
+            countArr[k - 1]++;
         }
         int idx = 0;
         for(int i=0; i<max; i++) {
