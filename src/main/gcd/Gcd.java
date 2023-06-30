@@ -49,7 +49,7 @@ public class Gcd {
      * }
      * return 4;
      */
-    private static int  gcdSwap(int a, int b) {
+    public static int  gcdSwap(int a, int b) {
         if(a%b == 0) return b;
         if(a < b) {
             // swap
