@@ -3,6 +3,26 @@ package hashmap;
 import java.util.*;
 
 public class SubArrayWithZeroSum {
+
+    /**
+     * Given an array of integers A, find and return whether the given array contains a non-empty subarray with a sum equal to 0.
+     *
+     * If the given array contains a sub-array with sum zero return 1, else return 0.
+     * @param A
+     * @return
+     */
+    public int subArrayWithZeroSumExistsSimple(int[] A) {
+        long[] prefix = prefixSum(A);
+        HashSet<Long> set = new HashSet<>();
+        for(long el:prefix) {
+            if(el == 0 || set.contains(el)) {
+                return 1;
+            }
+            set.add(el);
+        }
+        return 0;
+    }
+
     /**
      * Given an array of integers A, find and return whether the given array contains a non-empty subarray with a sum equal to 0.
      * If the given array contains a sub-array with sum zero return 1, else return 0.
