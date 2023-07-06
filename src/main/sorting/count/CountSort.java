@@ -1,4 +1,4 @@
-package sorting;
+package sorting.count;
 
 import java.util.Arrays;
 

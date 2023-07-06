@@ -1,4 +1,4 @@
-package sorting;
+package sorting.selection;
 
 /**
  * Problem Description
@@ -61,6 +61,7 @@ public class KthSmallestElement {
     // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
     public int kthSmallest(final int[] A, int B) {
         int counter = B;
+        // apply selection sort to sort the array
         for(int i=0; i<A.length-1 && counter > 0; i++, counter--) {
             int minIdx = i;
             int minValue = A[i];

@@ -1,4 +1,4 @@
-package sorting;
+package sorting.radix;
 
 import java.util.Arrays;
 

@@ -1,9 +1,8 @@
-package sorting;
+package sorting.comparator;
 
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
-/*
+/**
 Problem Description
 Given an array A of non-negative integers, arrange them such that they form the largest number.
 

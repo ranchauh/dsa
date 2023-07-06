@@ -4,61 +4,51 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class WindowString {
-    public String minWindow(String A, String B) {
-        Map<Character,Integer> mapA = new HashMap<>();
-        Map<Character,Integer> mapB = new HashMap<>();
-        // populate mapB with the frequency of each character in string B
-        for(char ch : B.toCharArray()) {
-            mapB.put(ch, mapB.getOrDefault(ch, 0) + 1);
-        }
-        // Go over the chars in String A, populate mapA and compare with mapB.
-        int s = 0, e = 0;
-        String result = "";
-        char ch = A.charAt(e);
-        // populate mapA with the frequency of the char found at jth location.
-        mapA.put(ch, 1);
-        while(e < A.length()) {
-            if(checkEquals(mapB, mapA)) {
-                // if the frequencies in mapB matches with mapA, update the result
-                result = A.substring(s, e+1);
-                ch = A.charAt(s);
-                int freq = mapA.getOrDefault(ch, 1);
-                if(freq == 1) {
-                    mapA.remove(ch);
-                } else {
-                    mapA.put(ch, freq - 1);
-                }
-                s = s + 1;
-            } else {
-                // else, include the next char
-                e = e + 1;
-                if(e == A.length()) {
-                    break;
-                }
-                ch = A.charAt(e);
-                mapA.put(ch, mapA.getOrDefault(ch, 0) + 1);
-            }
-        }
-        return result;
-    }
 
-    /**
-     * Checks whether:
-     * 1. mapTwo contains all the keys from mapOne.
-     * 2. If key exists, the value is greater or equal to mapOne.
-     */
-    private boolean checkEquals(Map<Character, Integer> mapOne, Map<Character, Integer> mapTwo) {
-        for(char key : mapOne.keySet()) {
-            if(!mapTwo.containsKey(key) || mapTwo.get(key) < mapOne.get(key)) {
-                return false;
-            }
+    public String minWindow(String A, String B) {
+        Map<Character, Integer> targetFreq = new HashMap<>();
+        for (char ch : B.toCharArray()) {
+            targetFreq.put(ch, targetFreq.getOrDefault(ch, 0) + 1);
         }
-        return true;
+
+        int required = targetFreq.size(); // Number of unique characters in B
+        int formed = 0; // Number of unique characters formed in the window
+        int left = 0; // Left pointer of the window
+        int right = 0; // Right pointer of the window
+        Map<Character, Integer> windowFreq = new HashMap<>();
+        int[] result = {-1, 0, 0}; // Format: {window length, left, right}
+        while (right < A.length()) {
+            char ch = A.charAt(right);
+            windowFreq.put(ch, windowFreq.getOrDefault(ch, 0) + 1);
+            if (targetFreq.containsKey(ch) && targetFreq.get(ch).equals(windowFreq.get(ch))) {
+                formed++;
+            }
+
+            while (left <= right && formed == required) {
+                // Update the result if a smaller window is found
+                if (result[0] == -1 || right - left + 1 < result[0]) {
+                    result[0] = right - left + 1;
+                    result[1] = left;
+                    result[2] = right;
+                }
+
+                char leftChar = A.charAt(left);
+                windowFreq.put(leftChar, windowFreq.get(leftChar) - 1);
+                if (targetFreq.containsKey(leftChar) && windowFreq.get(leftChar) < targetFreq.get(leftChar)) {
+                    formed--;
+                }
+                left++;
+            }
+            right++;
+        }
+
+        return result[0] == -1 ? "" : A.substring(result[1], result[2] + 1);
     }
 
     public static void main(String[] args) {
         WindowString ob = new WindowString();
         System.out.println(ob.minWindow("ADOBECODEBANC", "ABC"));
     }
+
 }
 
