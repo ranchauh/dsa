@@ -1,4 +1,4 @@
-package serach.binary;
+package search.binary;
 
 import java.util.Arrays;
 

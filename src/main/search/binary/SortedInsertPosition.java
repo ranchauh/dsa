@@ -1,4 +1,4 @@
-package serach.binary;
+package search.binary;
 
 /**
  * Problem Description

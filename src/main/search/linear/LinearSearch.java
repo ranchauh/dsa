@@ -1,4 +1,4 @@
-package serach.linear;
+package search.linear;
 
 public class LinearSearch {
     public static int search(int[] arr, int k) {
