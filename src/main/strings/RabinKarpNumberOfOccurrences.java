@@ -57,12 +57,12 @@ public class RabinKarpNumberOfOccurrences {
 
         long[] h = new long[n + 1];
         for (int i = 0; i < n; i++){
-            h[i + 1] = (h[i] + (A.charAt(i) - 'a' + 1) * p_pow[i]) % mod;
+            h[i + 1] = (h[i] + (A.charAt(i)) * p_pow[i]) % mod;
         }
 
         long hash_B = 0;
         for (int i = 0; i < m; i++) {
-            hash_B = (hash_B + (B.charAt(i) - 'a' + 1) * p_pow[i]) % mod;
+            hash_B = (hash_B + (B.charAt(i)) * p_pow[i]) % mod;
         }
 
         int ans = 0;
