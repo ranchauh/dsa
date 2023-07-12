@@ -59,6 +59,26 @@ public class LinkedList {
     }
 
     /**
+     * You are given the head of a linked list A and an integer B. Delete the B-th node from the linked list.
+     * Note : Follow 0-based indexing for the node numbering.
+     */
+    public ListNode delete(ListNode A, int B) {
+        if(B == 0) {
+            A = A.next;
+            return A;
+        }
+        ListNode head = A;
+        for(int i=1; i<= B-1; i++) {
+            if(head == null) {
+                return A;
+            }
+            head = head.next;
+        }
+        head.next = head.next.next;
+        return A;
+    }
+
+    /**
      * You are given the head of a linked list A and an integer B. You need to find the B-th element of the linked list.
      * Note : Follow 0-based indexing for the node numbering.
      */
@@ -106,9 +126,15 @@ public class LinkedList {
         System.out.println(list.findKThElement(head, 3)); // 6
         // compare two linked list
         LinkedList list2 = new LinkedList();
-        int[] B = {6,3,3,6,7,8,7,3,7};
+        int[] B = {6,3,3,6,7,3,8,7,3,7};
         ListNode head2 = list2.arrayToLinkedList(B);
-        System.out.println(list.compare(head,head2));
+        System.out.println(list.compare(head,head2)); // true
+
+        // delete 2nd idx value from list
+        head = list.delete(head, 2);
+        int[] C = {6,3,6,7,3,8,7,3,7};
+        ListNode head3 = list2.arrayToLinkedList(C);
+        System.out.println(list.compare(head,head3)); // true
     }
 
 }
