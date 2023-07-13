@@ -115,6 +115,61 @@ public class LinkedList {
         return hc1 == hc2;
     }
 
+    /**
+     * You are given a singly linked list having head node A. You have to reverse the linked list and return the head node of that reversed list.
+     * NOTE: You have to do it in-place and in one-pass.
+     */
+    public ListNode reverse(ListNode A) {
+        ListNode prev = null;
+        ListNode curr = A;
+        while(curr != null) {
+            ListNode next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+
+    /**
+     * Given a singly linked list A, determine if it's a palindrome. Return 1 or 0, denoting if it's a palindrome or not, respectively.
+     */
+    public int isPalindrome(ListNode A) {
+        // 1. Calculate the size of the LL
+        int size = 0;
+        ListNode head = A;
+        while(head != null) {
+            size++;
+            head = head.next;
+        }
+        // 2. Traverse till (size-1)/2 to divide the LL in two parts.
+        int mid = (size-1)/2;
+        ListNode head1 = A;
+        for(int i=0; i<mid; i++) {
+            head1 = head1.next;
+        }
+        // 3. Reverse part2
+        head1 = reverse(head1);
+        head  = A;
+        // 4. Compare and check palindrome
+        ListNode curr1 = head;
+        ListNode curr2 = head1;
+        int isPalindrome = 1;
+        while(curr1 != null && curr2 != null) {
+            if(curr1.val != curr2.val) {
+                isPalindrome = 0;
+                break;
+            }
+            curr1 = curr1.next;
+            curr2 = curr2.next;
+        }
+        // 5. Restore the LL by reversing the LL back.
+        head1 = reverse(head1);
+
+        // 6. Return result;
+        return isPalindrome;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
         int[] A = {6,3,3,6,7,8,7,3,7};
@@ -135,6 +190,23 @@ public class LinkedList {
         int[] C = {6,3,6,7,3,8,7,3,7};
         ListNode head3 = list2.arrayToLinkedList(C);
         System.out.println(list.compare(head,head3)); // true
+
+        head = list.reverse(head);
+        int[] R = {7,3,7,8,3,7,6,3,6};
+        ListNode headR = list2.arrayToLinkedList(R);
+        System.out.println(list.compare(head,headR)); // true
+
+
+        System.out.println(list2.isPalindrome(headR)); // 0
+
+        int[] P = {1,2,3,4,3,2,1};
+        ListNode pList = list2.arrayToLinkedList(P);
+        System.out.println(list2.isPalindrome(pList)); // 1
+
+        P = new int[]{1,2,3,4,2,1};
+        pList = list2.arrayToLinkedList(P);
+        System.out.println(list2.isPalindrome(pList)); // 0
+
     }
 
 }
