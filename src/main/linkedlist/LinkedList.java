@@ -12,7 +12,7 @@ public class LinkedList {
      * You are given A which is the head of a linked list. Print the linked list in space separated manner.
      * Note : The last node value must also be succeeded by a space and after printing the entire list you should print a new line
      */
-    public void print(ListNode A) {
+    public static void print(ListNode A) {
         ListNode hc = A;
         while(hc != null) {
             System.out.print(hc.val);
@@ -32,7 +32,7 @@ public class LinkedList {
      * In case the pos is 0, simply insert the new node at head only.
      * Follow 0-based indexing for the node numbering.
      */
-    public ListNode insert(ListNode A, int B, int C) {
+    public static ListNode insert(ListNode A, int B, int C) {
         // Create a new node
         ListNode newNode = new ListNode(B);
 
@@ -90,7 +90,7 @@ public class LinkedList {
         return hc.val;
     }
 
-    private ListNode arrayToLinkedList(int[] arr) {
+    public static ListNode arrayToLinkedList(int[] arr) {
         ListNode head = new ListNode(arr[0]);
         for(int i=1; i<arr.length; i++) {
             insert(head, arr[i], i);
@@ -119,7 +119,7 @@ public class LinkedList {
      * You are given a singly linked list having head node A. You have to reverse the linked list and return the head node of that reversed list.
      * NOTE: You have to do it in-place and in one-pass.
      */
-    public ListNode reverse(ListNode A) {
+    public static ListNode reverse(ListNode A) {
         ListNode prev = null;
         ListNode curr = A;
         while(curr != null) {
@@ -168,6 +168,21 @@ public class LinkedList {
 
         // 6. Return result;
         return isPalindrome;
+    }
+
+    public static ListNode findMid(ListNode A) {
+        if(A == null) {
+            return null;
+        } else if(A.next == null) {
+            return A;
+        }
+        ListNode slow = A;
+        ListNode fast= A;
+        while(fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
     }
 
     public static void main(String[] args) {
