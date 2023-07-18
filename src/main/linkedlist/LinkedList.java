@@ -58,6 +58,19 @@ public class LinkedList {
         return A;
     }
 
+    public static ListNode insertTail(ListNode A, ListNode node) {
+        if(A == null) {
+            A = node;
+            return A;
+        }
+        ListNode hc = A;
+        while(hc.next != null) {
+            hc = hc.next;
+        }
+        hc.next = node;
+        return A;
+    }
+
     /**
      * You are given the head of a linked list A and an integer B. Delete the B-th node from the linked list.
      * Note : Follow 0-based indexing for the node numbering.
