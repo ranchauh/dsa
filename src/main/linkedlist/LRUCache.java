@@ -22,7 +22,10 @@ public class LRUCache {
 
     public int get(int key) {
         if(map.containsKey(key)) {
-            return map.get(key).value;
+            Node node = map.get(key);
+            deleteNode(node);
+            insertBack(node);
+            return node.value;
         } else {
             return -1;
         }
