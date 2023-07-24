@@ -1,9 +1,6 @@
 package arrays.subarrays;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Sana is a chef who loves to experiment with different flavors. She has an array A of length N of spices in her kitchen. She wants to find the smallest subarray that contains all occurrences of the most frequent spice (There can be multiple most frequent spices).
@@ -12,22 +9,16 @@ import java.util.Map;
 public class ChefSana {
     public static int solve(int[] A) {
         Map<Integer, Long> freq = new HashMap<>();
-        long max = Long.MIN_VALUE;
+        long max = 1;
         for(int i : A) {
-            if(freq.containsKey(i)) {
-                freq.put(i, freq.get(i) + 1L);
-            } else {
-                freq.put(i, 1L);
-            }
-
+            freq.put(i, freq.getOrDefault(i, 0L) + 1L);
             if(freq.get(i) > max) {
                 max = freq.get(i);
             }
         }
-        List<Integer> maxList =  new ArrayList<>();
+        Set<Integer> maxList =  new HashSet<>();
         for(int k : freq.keySet()) {
-            long val = freq.get(k);
-            if(val == max) {
+            if(freq.get(k) == max) {
                 maxList.add(k);
             }
         }
