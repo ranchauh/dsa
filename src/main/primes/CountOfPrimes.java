@@ -1,4 +1,4 @@
-package prime;
+package primes;
 /*
 Problem Description
 You will be given an integer n. You need to return the count of prime numbers less than or equal to n.

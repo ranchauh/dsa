@@ -1,4 +1,4 @@
-package prime;
+package primes;
 /*
 Given an Integer A. Return 1 if A is prime and return 0 if not.
  */

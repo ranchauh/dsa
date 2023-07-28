@@ -1,6 +1,6 @@
 package basic;
 
-import prime.IsPrime;
+import primes.IsPrime;
 
 /**
  * A lucky number  is a number that has exactly 2 distinct  prime divisors.
