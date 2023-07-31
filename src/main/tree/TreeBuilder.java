@@ -2,7 +2,7 @@ package tree;
 
 import java.util.ArrayList;
 
-public class BuildTree {
+public class TreeBuilder {
 
     public TreeNode buildTreeWithInAndPost(ArrayList<Integer> A, ArrayList<Integer> B) {
         if(A.size() != B.size()) {

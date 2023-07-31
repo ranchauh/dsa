@@ -1,7 +1,7 @@
 package tree;
 
 public class TreeNode {
-    protected int val;
+    protected Integer val;
     protected TreeNode left;
     protected TreeNode right;
 
