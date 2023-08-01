@@ -109,5 +109,6 @@ public class LargestRectangleInHistogram {
         LargestRectangleInHistogram ob = new LargestRectangleInHistogram();
         System.out.println(ob.largestRectangleArea(new int[]{2, 1, 5, 6, 2, 3})); // 10
         System.out.println(ob.largestRectangleArea(new int[]{2})); // 2
+        System.out.println(ob.largestRectangleArea(new int[]{1,1,1,1})); // 2
     }
 }
