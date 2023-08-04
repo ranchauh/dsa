@@ -77,7 +77,7 @@ package tree.bst;
 public class DeleteFromBST {
     public TreeNode delete(TreeNode root, int k) {
         if(root == null) {
-            return root;
+            return null;
         }
         if(root.val > k) {
             root.left = delete(root.left, k);
