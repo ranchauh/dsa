@@ -76,21 +76,17 @@ public class MaximumXOR {
                 curr = curr.children[bit];
             }
         }
-
-        int maxXor(int x, int noOfBits) {
-            TrieNode curr = this.root;
+        int maxXOR(int x, int noOfBits) {
             int ans = 0;
+            TrieNode curr = this.root;
             for(int i=noOfBits; i>=0; i--) {
-                int bit = (x & (1 << i)) > 0 ? 1 : 0 ;
-                TrieNode node = curr.children[1 - bit];
-                if(node != null) {
-                    ans += ((1 << i) * node.bit);
-                    curr = curr.children[1 - bit];
-                } else {
+                int bit = (x & (1 << i)) > 0 ? 1 : 0;
+                TrieNode node = curr.children[1-bit];
+                if(node == null) {
                     node = curr.children[bit];
-                    ans += ((1 << i) * node.bit);
-                    curr = curr.children[bit];
                 }
+                ans += ((1 << i) * node.bit);
+                curr = node;
             }
             return ans;
         }
@@ -121,7 +117,7 @@ public class MaximumXOR {
         }
         int maxXor = Integer.MIN_VALUE;
         for(int x : A) {
-            int y = trie.maxXor(x, noOfBits);
+            int y = trie.maxXOR(x, noOfBits);
             maxXor = Math.max(maxXor, x ^ y);
         }
 
