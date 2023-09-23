@@ -1,7 +1,5 @@
 package graph;
 
-import java.sql.Array;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -82,7 +80,7 @@ import java.util.Queue;
  *
  *  Path from node1 to node 5 is ( 1 -> 2 -> 3 -> 4 -> 5 ) so we will return 1.
  */
-public class PathInDirectedGraph {
+public class PathInDirectedGraphBFS {
     public int solve(int n, int[][] edges) {
         return bfs(n, edges, 1, n) ? 1 : 0;
     }
@@ -109,7 +107,7 @@ public class PathInDirectedGraph {
     }
 
     public static void main(String[] args) {
-        PathInDirectedGraph ob = new PathInDirectedGraph();
+        PathInDirectedGraphBFS ob = new PathInDirectedGraphBFS();
         int[][] edges =  {   {1, 2 },
                 {4, 1 },
                 {2, 4 },

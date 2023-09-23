@@ -107,7 +107,7 @@ public class SelectBatches {
         int count = 0;
         for(int i=1; i<=n; i++) {
             if(!visited[i]) {
-                int totalStrength = dfs(i, graph, visited, B);
+                int totalStrength = bfs(i, graph, visited, B);
                 if(totalStrength >= D) {
                     count++;
                 }
@@ -116,7 +116,7 @@ public class SelectBatches {
         return count;
     }
 
-    int dfs(int n, List<Integer>[] graph, boolean[] visited, int[] strengths) {
+    int bfs(int n, List<Integer>[] graph, boolean[] visited, int[] strengths) {
         Queue<Integer> queue = new LinkedList<>();
         queue.add(n);
         visited[n] = true;
