@@ -92,7 +92,23 @@ public class ZeroOneKnapsack {
         return dp[n][k];
     }
 
-
+    public int solveSpaceOptimized(int[] val, int[] wt, int k) {
+        int n = wt.length;
+        int[] prev = new int[k+1];
+        for(int i=1; i<=n; i++) {
+            int[] curr = new int[k+1];
+            for(int j=1; j<=k; j++) {
+                int ex = 0, in = 0;
+                ex = prev[j];
+                if((j-wt[i-1]) >= 0) {
+                    in = prev[j-wt[i-1]] + val[i-1];
+                }
+                curr[j] = Math.max(ex, in);
+            }
+            prev = curr;
+        }
+        return prev[k];
+    }
 
     int ZeroOneKnapsackMemoized(int[] wt, int[] val, int k, int end, int[][] dp) {
         if(end == 0) {
@@ -132,6 +148,7 @@ public class ZeroOneKnapsack {
     public static void main(String[] args) {
         ZeroOneKnapsack ob = new ZeroOneKnapsack();
         System.out.println(ob.solve(new int[]{60, 100, 120}, new int[]{10, 20, 30}, 50)); // 220
-        System.out.println(ob.solve(new int[]{10, 20, 30, 40}, new int[]{12, 13, 15, 19}, 50)); // 10
+        System.out.println(ob.solve(new int[]{10, 20, 30, 40}, new int[]{12, 13, 15, 19}, 50)); // 90
+        System.out.println(ob.solveSpaceOptimized(new int[]{5,12,8,1}, new int[]{4,8,5,3}, 10)); // 13
     }
 }
