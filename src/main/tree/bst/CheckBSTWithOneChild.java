@@ -1,5 +1,7 @@
 package tree.bst;
 
+import java.util.ArrayList;
+
 /**
  * Problem Description
  *
@@ -77,6 +79,26 @@ public class CheckBSTWithOneChild {
                 return "NO";
             }
             root = A[i];
+        }
+        return "YES";
+    }
+
+    public String solve(ArrayList<Integer> A) {
+        int n = A.size();
+        if(n <= 2) {
+            return "YES";
+        }
+        int min = Math.min(A.get(n-1), A.get(n-2));
+        int max = Math.max(A.get(n-1), A.get(n-2));
+        for(int i=n-3; i>=0; i--) {
+            int x = A.get(i);
+            if(x > min && x > max) {
+                max = x;
+            } else if(x < min && x < max) {
+                min = x;
+            } else {
+                return "NO";
+            }
         }
         return "YES";
     }
