@@ -44,7 +44,7 @@ public class CharTrie {
             if(curr.children[ch] == null) {
                 return;
             }
-            // if curr has more than 1 children or its the end node for another work
+            // if curr has more than 1 children, or it's the end node for another word
             // we can't delete it. save it as last and continue.
             if(curr.childrenCount > 1 || curr.isEnd) {
                 last = curr;
