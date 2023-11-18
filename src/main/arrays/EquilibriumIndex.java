@@ -14,6 +14,36 @@ Note:
     If there are more than one equilibrium indexes then return the minimum index.
  */
 public class EquilibriumIndex {
+
+    public int solve(int[] arr) {
+        int n = arr.length;
+        int[] pfSum = prefixSum(arr);
+        for(int i=0; i<n; i++) {
+            if(i==0) {
+                // there is no left element, so check if sum(1, n-1) is 0
+                int rs = pfSum[n-1] - pfSum[i];
+                if(rs == 0) {
+                    return i;
+                }
+            } else {
+                int ls = pfSum[i] - arr[i];
+                int rs = pfSum[n-1] - pfSum[i];
+                if(ls == rs) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
+    int[] prefixSum(int[] arr) {
+        int[] pfSum = new int[arr.length];
+        pfSum[0] = arr[0];
+        for(int i=1; i<arr.length; i++) {
+            pfSum[i] = pfSum[i-1] + arr[i];
+        }
+        return pfSum;
+    }
     public int solve(ArrayList<Integer> A) {
         ArrayList<Integer> prefixSum = prefixSum(A);
         int n = A.size();
