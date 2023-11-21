@@ -1,6 +1,8 @@
 package sorting.quick;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Given an integer array A of size N. Return 1 if the array can be arranged to form an arithmetic progression, otherwise return 0.
@@ -16,6 +18,7 @@ public class ArithmeticProgressionCheck {
                 return 0;
             }
         }
+        ;
         return 1;
     }
 
