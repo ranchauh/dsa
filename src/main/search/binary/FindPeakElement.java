@@ -74,4 +74,12 @@ public class FindPeakElement {
         }
         return ans;
     }
+
+    public static void main(String[] args) {
+        FindPeakElement ob = new FindPeakElement();
+        System.out.println(ob.solve(new int[]{1,3,5,10,15,12,6})); // 15
+        System.out.println(ob.solve(new int[]{1,2,3,4,5})); // 5
+        System.out.println(ob.solve(new int[]{10,9,8,7,5,2})); // 10
+        System.out.println(ob.solve(new int[]{100})); // 100
+    }
 }
