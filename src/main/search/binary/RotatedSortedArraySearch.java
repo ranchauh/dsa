@@ -89,7 +89,7 @@ public class RotatedSortedArraySearch {
     }
 
     private int findPeak(int[] A) {
-        int s = 0, e = A.length - 2;
+        int s = 0, e = A.length - 1;
         while(s <= e) {
             int mid = s + (e-s)/2;
             if(A[mid] > A[mid + 1]) {

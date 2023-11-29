@@ -108,7 +108,8 @@ public class InversionCountInArray {
     public static void main(String[] args) {
         InversionCountInArray ob = new InversionCountInArray();
         int[] A = {3, 4, 1, 2};
-        System.out.println(ob.solve(A));
+        System.out.println(ob.solve(A)); // 4
+        System.out.println(ob.solve(new int[]{10,3,8,15,6,12,2,18,7,1})); // 26
 
     }
 }
