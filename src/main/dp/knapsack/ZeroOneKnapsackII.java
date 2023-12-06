@@ -82,6 +82,7 @@ public class ZeroOneKnapsackII {
         for(int v : val) {
             m += v;
         }
+        // dp[i][j] = Min weight required to obtain value j with i items.
         int[][] dp = new int[n+1][m+1];
         for(int i=0; i<=n; i++) {
             for(int j=0; j<=m; j++) {

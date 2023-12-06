@@ -27,7 +27,7 @@ public class RegexMatch {
                 j++;
             } else if(idx_p != -1) {
                 // when the chars don't match and we encountered * before,
-                // this means that * has convered till current ith index.
+                // this means that * has covered till current ith index.
                 // We also need to check if * has matched 0 char sequence. for that reset i and j
                 i = idx_s + 1;
                 j = idx_p + 1;

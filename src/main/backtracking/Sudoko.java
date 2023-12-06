@@ -44,8 +44,8 @@ public class Sudoko {
         if(cell == n*n) {
             return true;
         }
-        int i = cell/9;
-        int j = cell%9;
+        int i = cell/n;
+        int j = cell%n;
         if(mat[i][j] != '.') {
             return sudoku(mat, cell+1, n);
         }

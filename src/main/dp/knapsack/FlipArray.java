@@ -1,7 +1,19 @@
 package dp.knapsack;
 
-import java.util.Arrays;
-
+/**
+ * Given an array of positive elements, you have to flip the sign of some of its elements such that the resultant sum of the elements of array should be minimum non-negative (as close to zero as possible). Return the minimum no. of elements whose sign needs to be flipped such that the resultant sum is minimum non-negative. Note that the sum of all the array elements will not exceed 104.
+ * Examples:
+ *
+ * Input: arr[] = {15, 10, 6}
+ * Output: 1
+ * Here, we will flip the sign of 15
+ * and the resultant sum will be 1.
+ * Input: arr[] = [14, 10, 4]
+ * Output: 1
+ * Here, we will flip the sign of 14 and the resultant sum will be 0.
+ * Note that flipping the signs of 10 and 4 also gives
+ * the resultant sum 0 but the count of flipped elements is not minimum.
+ */
 public class FlipArray {
     static class Pair {
         int count;
