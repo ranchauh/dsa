@@ -1,6 +1,10 @@
 package linkedlist;
 
 public class KReverseLinkedList {
+    /**
+     * TC: O(n)
+     * SC: O(1)
+     */
     public ListNode reverseList(ListNode A, int B) {
         ListNode prev = null, next = null;
         ListNode curr = A;
@@ -43,7 +47,7 @@ public class KReverseLinkedList {
 
     public static void main(String[] args) {
         KReverseLinkedList ob = new KReverseLinkedList();
-        ListNode head = LinkedList.arrayToLinkedList(new int[]{1, 2, 3, 4, 5, 6, 7, 8 , 9});
+        ListNode head = LinkedList.arrayToLinkedList(new int[]{1, 2, 3, 4, 5});
         head = ob.reverseList(head, 3);
         LinkedList.print(head);
     }

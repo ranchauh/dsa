@@ -121,7 +121,7 @@ public class RottenOranges {
                 assert p != null;
                 int i = p.i;
                 int j = p.j;
-                // check left, top, right, bottom celss for 1
+                // check left, top, right, bottom cells for 1
                 for(int k=0; k<4; k++) {
                     int ni = i + row[k];
                     int nj = j + col[k];
