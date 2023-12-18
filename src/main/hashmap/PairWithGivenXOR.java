@@ -10,6 +10,13 @@ import java.util.Set;
  * Pair (a, b) and (b, a) is considered to be the same and should be counted once.
  */
 public class PairWithGivenXOR {
+    /**
+     * Logic:
+     * If x^y = z
+     * so, x^z = y and y^z = x
+     * Hence, we can do XOR of B with each number (x) iteratively and
+     * look for the result of x ^ B in the set we create along the iterations.
+     */
     public int withHashSet(int[] A, int B) {
         Set<Integer> set = new HashSet<>();
         int count = 0;
