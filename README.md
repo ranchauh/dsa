@@ -1,9 +1,9 @@
 # Data Structures and Algorithms
 Repository to practice DSA problems
 
-Reference YouTube channels:
+## Reference YouTube channels:
 
-## DSA & Algo:
+### DSA & Algo:
 
 • TheAdityaVerma - https://lnkd.in/gF3RjnWF
 
@@ -16,7 +16,7 @@ Reference YouTube channels:
 • Neetcode - https://lnkd.in/gvWCx645
 
 
-## System Design & LLD:
+### System Design & LLD:
 
 • Gaurav Sen - https://lnkd.in/gB7F5ksx
 
