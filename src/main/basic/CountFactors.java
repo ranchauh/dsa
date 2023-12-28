@@ -12,7 +12,7 @@ public class CountFactors {
         for(int i=1; (i*i) <= A; i++) {
             if(A%i == 0) {
                 // factors of 9
-                // 1, 3, 9, so when 9/3 = 2, count 1
+                // 1, 3, 9, so when 9/3 = 3, count 1
                 if(A/i == i) count++;
                 // else count twice.For 1 and 9
                 else count += 2;

@@ -113,4 +113,58 @@ public class RecoverBST {
         }
         return list;
     }
+
+    int first = -1;
+    int second = -1;
+    int prev = -1;
+    public int[] recoverTreeMorrisInorder(TreeNode A) {
+        first = -1;
+        second = -1;
+        prev = -1;
+        TreeNode curr = A;
+        TreeNode last;
+        while(curr !=  null) {
+            if(curr.left == null) {
+                if(prev != -1 && prev > curr.val) {
+                    if(first == -1) {
+                        first = prev;
+                        second = curr.val;
+                    } else {
+                        second = curr.val;
+                    }
+                }
+                prev = curr.val;
+                curr = curr.right;
+            } else {
+                last = curr.left;
+                // go to extreme right child
+                while(last.right != null && last.right != curr) {
+                    last = last.right;
+                }
+                // if right was already not connected to curr
+                if(last.right == null) {
+                    // connect last's right with curr to trace back
+                    last.right = curr;
+                    curr = curr.left;
+                } else {
+                    if(prev != -1 && prev > curr.val) {
+                        if(first == -1) {
+                            first = prev;
+                            second = curr.val;
+                        } else {
+                            second = curr.val;
+                        }
+                    }
+                    prev = curr.val;
+                    // disconnect last.right and continue with right substree
+                    last.right = null;
+                    curr = curr.right;
+                }
+            }
+        }
+        if(first < second) {
+            return new int[]{first, second};
+        }
+        return new int[]{second, first};
+    }
 }

@@ -87,19 +87,16 @@ public class FractionalKnapsack {
         for(int i=0; i<n; i++) {
             pairs[i] = new Pair(val[i], wt[i]);
         }
-        Arrays.sort(pairs, Comparator.comparing(p -> p.ppu));
+        Arrays.sort(pairs, Comparator.comparing(p -> p.ppu, Comparator.reverseOrder()));
         double ans = 0;
-        int i = n-1;
-        while(k > 0 && i >= 0) {
-            Pair pair = pairs[i];
+        for(Pair pair : pairs) {
             if(k >= pair.wt) {
                 k = k - pair.wt;
                 ans += pair.val;
             } else {
                 ans += pair.ppu * k;
-                k = 0;
+                break;
             }
-            i--;
         }
         ans = ans * 1000;
         return (int) ans/10;
